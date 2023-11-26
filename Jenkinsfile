@@ -63,8 +63,8 @@ pipeline {
             steps {
                 script {
                     kubeconfig(credentialsId: 'kubeconfig', serverUrl: '') {
-                        sh "kubectl set image deployment/nginx-deployment nginx=biswalashu/kasplo-frontend:${BUILD_NUMBER} --record"
-                        sh 'docker rmi -f biswalashu/kasplo-frontend'
+                        sh "kubectl set image deployment/nginx-deployment nginx=biswalashu/kasplo-frontend:${BUILD_NUMBER}"
+                        sh "docker rmi -f biswalashu/kasplo-frontend:${BUILD_NUMBER}"
                     }
                 }
             }
