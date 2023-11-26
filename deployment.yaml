@@ -1,20 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: nginx-deployment
 spec:
   replicas: 1  # Adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: backend
-      versio: ${BUILD_NUMBER}
+      app: nginx
   template:
     metadata:
       labels:
-        app: backend
+        app: nginx
+        version: ${BUILD_NUMBER}
     spec:
       containers:
-      - name: backend
-        image: biswalashu/kasplo-backend:${BUILD_NUMBER}  # Replace with your actual Docker image and tag
+      - name: nginx
+        image: biswalashu/kasplo-frontend:${BUILD_NUMBER}
         ports:
-        - containerPort: 8000
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi"  # Adjust resource limits as needed
+          requests:
+            memory: "64Mi"   # Adjust resource requests as needed

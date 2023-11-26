@@ -23,10 +23,10 @@ pipeline {
         KUBECONFIG = credentials('kubeconfig')
         DOCKERHUB_CREDENTIALS = credentials('dhub')
         NAMESPACE = 'kasplo-app'
-        IMAGE_NAME = 'biswalashu/kasplo-backend'
+        IMAGE_NAME = 'biswalashu/kasplo-frontend'
         GIT_REPO_URL = 'https://github.com/samir282/Dummy_FullStack_Project.git'
         GITHUB_CREDENTIALS = credentials('github')
-        GIT_BRANCH = 'backend'
+        GIT_BRANCH = 'frontend'
     }
 
     stages {
@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     kubeconfig(credentialsId: 'kubeconfig', serverUrl: '') {
-                        sh "kubectl set image deployment/backend-deployment backend=biswalashu/kasplo-backend:${BUILD_NUMBER} --record"
+                        sh "kubectl set image deployment/nginx-deployment nginx=biswalashu/kasplo-frontend:${BUILD_NUMBER} --record"
                     }
                 }
             }
