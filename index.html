@@ -29,8 +29,8 @@
     }
 
     async function displayData() {
-        const apiUrl1 = 'http://backend-service/api/data1';
-        const apiUrl2 = 'http://backend-service/api/data2';
+        const apiUrl1 = 'http://backend-service:8000/api/data1';
+        const apiUrl2 = 'http://backend-service:8000/api/data2';
 
         const apiData1 = await fetchData(apiUrl1);
         const apiData2 = await fetchData(apiUrl2);
