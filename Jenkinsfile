@@ -33,7 +33,12 @@ pipeline {
 
         stage('Checkout Source') {
             steps {
-                git url: GIT_REPO_URL, branch: GIT_BRANCH
+                // git url: GIT_REPO_URL, branch: GIT_BRANCH
+                script {
+                    // Checkout code from GitHub
+                    checkout scm
+                }
+
             }
         }
         
