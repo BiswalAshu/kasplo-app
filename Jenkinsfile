@@ -24,7 +24,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dhub')
         NAMESPACE = 'kasplo-app'
         IMAGE_NAME = 'biswalashu/kasplo-backend'
-        GIT_REPO_URL = 'https://github.com/samir282/Dummy_FullStack_Project.git'
+        GIT_REPO_URL = 'https://github.com/BiswalAshu/kasplo-app.git'
         GITHUB_CREDENTIALS = credentials('github')
         GIT_BRANCH = 'backend'
     }
